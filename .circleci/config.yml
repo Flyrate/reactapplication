@@ -3,9 +3,9 @@ defaults: &defaults
     - image: wilson208/circleci-awscli
 
   environment:
-    AWS_ACCESS_KEY_ID: xxxxxx
-    AWS_SECRET_ACCESS_KEY: xxxxxxxx
-    AWS_DEFAULT_REGION: ap-southeast-2
+    AWS_ACCESS_KEY_ID: AKIAQOTBHTVEXBBG2RH4
+    AWS_SECRET_ACCESS_KEY: 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
+    AWS_DEFAULT_REGION: us-east-1
 
 version: 2
 jobs:
@@ -61,7 +61,6 @@ jobs:
           when: on_fail
           command: |
             aws events put-events --entries '[{ "Source": "circleci.myapp", "DetailType": "CircleCI state change", "Detail": "{ \"app\": \"myapp\", \"type\": \"fail\" }"}]'
-
 workflows:
   version: 2
   build-deploy:
